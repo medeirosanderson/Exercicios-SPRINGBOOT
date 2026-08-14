@@ -3,6 +3,7 @@ import com.springweb.exercicio01.Model.Livro;
 import com.springweb.exercicio01.Service.LivroService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -23,6 +24,11 @@ public class LivroController {
     @GetMapping("/quant")
     public int quantidadeLivros(){
         return livroService.quantidadeLivros();
+    }
+
+    @GetMapping("/buscar")
+    public List<Livro> buscaLivros(@RequestParam String titulo){
+        return livroService.buscarNomeLivro(titulo);
     }
 
 }
