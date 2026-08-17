@@ -37,6 +37,10 @@ public class LivroService {
         .filter(livro -> livro.getTitulo().toLowerCase().contains(titulo.toLowerCase()))
         .collect(Collectors.toList());
 
+        if (buscarLivro.isEmpty()) {
+            throw new LivroNaoEncontradoException("Nenhum livro encontrado com o Titulo: " + titulo);
+        }
+
         return buscarLivro;
     }
 
